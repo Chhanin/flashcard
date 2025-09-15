@@ -1,0 +1,47 @@
+# Naming
+
+## Goals
+- Prefer clarity and readability over brevity.
+- Names should communicate intent without needing comments.
+
+## General
+- Use full words, not abbreviations (good: `getUserProfile`, avoid: `getUsrProf`).
+- Avoid 1–2 letter names except for trivial indices in very small scopes.
+- Prefer descriptive nouns for variables and PascalCase for types/classes.
+- Avoid Hungarian notation; no type prefixes.
+
+## JavaScript/TypeScript
+- Variables, functions: `camelCase`
+- React components, classes, types, interfaces, enums: `PascalCase`
+- Constants intended as compile-time flags: `UPPER_SNAKE_CASE` (sparingly)
+- Filenames:
+  - React components: `PascalCase.tsx` (e.g., `FlashcardView.tsx`)
+  - Hooks and utilities: `camelCase.ts` (e.g., `useFlashcards.ts`)
+  - Data/config: `kebab-case.ts` or `camelCase.ts` (consistency within folder).
+
+## React
+- Components: `PascalCase` and named after their purpose, not implementation (`FlashcardCard` → `Flashcard`).
+- Hooks: start with `use` and a clear verb/noun (`useStudySession`).
+- Event handlers: prefix with `handle` (`handleFlip`, `handleSubmit`).
+- Boolean props/state: positive form prefixed with `is/has/can/should` (`isFlipped`, `hasError`).
+
+## Types & Interfaces
+- Types/interfaces: `PascalCase` (`Flashcard`, `StudyStats`).
+- Discriminated unions: include a `kind` or `type` field with string literal members (`kind: 'verbs' | 'animals'`).
+
+## Functions
+- Use verb or verb-phrase names (`getAllFlashcards`, `filterByCategory`).
+- Return boolean: start with `is/has/can/should` (`isCorrectAnswer`).
+- Side-effecting functions: imperative verbs (`saveStats`, `trackWrongAnswer`).
+
+## State & Selectors
+- State variables describe meaning, not UI (`currentCardIndex`, `wrongCardIds`).
+- Derived/computed values prefixed with `computed/derived/get` only if helpful; otherwise keep as nouns.
+
+## Tests (future)
+- Test files mirror source names with `.test.ts` or `.test.tsx`.
+- Test names read as sentences (`it('flips card on click')`).
+
+## Examples
+- Bad: `n`, `arr`, `data1`, `genYmdStr`
+- Good: `currentIndex`, `allCards`, `sessionStats`, `generateDateString`
